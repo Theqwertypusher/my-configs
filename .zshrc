@@ -71,7 +71,6 @@ SPACESHIP_EXEC_TIME_PRECISION=3
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -96,11 +95,22 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
 
 #ALIASES
+
+##TERMINAL
+alias oz="code ~/.zshrc"
+alias soz="source ~/.zshrc"
+alias kan="killall -9 node"
+
+##NAVIGATION
+alias .="cd .. && ls -al"
+alias ..="cd ...&& ls -al"
+alias ...="cd .... && ls -al"
+alias sshc="cd ~/.ssh && lsa"
+alias gitc="code ~/.gitconfig"
+alias gcm="git checkout main"
+alias docs="cd ~/Documents"
 
 ##GIT
 alias gi="git init"
@@ -137,10 +147,6 @@ alias undo="git reset --soft HEAD~1"
 alias gc="better-commits"
 alias gbc="git branch --show-current | pbcopy"
 
-##ROUTETOPROJECTSC
-alias g1="cd Desktop/ada-the-frontend"
-alias gg1="code Desktop/ada-the-frontend"
-
 ##NPM
 alias ns="npm start"
 alias nr="npm run"
@@ -157,21 +163,8 @@ alias ngl="npm ls -g"
 alias ya="yarn add"
 alias yad="yarn add -D"
 
-##NAVIGATION
-alias sshc="cd ~/.ssh && lsa"
-alias gitc="vim ~/.gitconfig"
-alias gcm="git checkout main"
-alias docs="cd ~/Documents"
-
 ##REACT
 alias ncra="npx create-react-app"
-
-##TERMINAL
-alias oz="code ~/.zshrc"
-alias soz="source ~/.zshrc"
-alias t="touch"
-alias kan="killall -9 node"
-alias lsa="ls -al"
 
 ##YARN
 alias ya="yarn add"
@@ -196,11 +189,6 @@ alias setup=". setup.sh"
 function mkfile() {
     mkdir -p "$1" && touch "$1"/"$2"
 }
-
-# delete all folders
-# prints tree of directory
-# ask if sure you want to delete
-# have sel
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
