@@ -1,12 +1,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH # If you come from bash you might have to change your $PATH.
-export ZSH="/Users/jason/.oh-my-zsh"       # Path to your oh-my-zsh installation.
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="spaceship"
+export ZSH="$HOME/.oh-my-zsh"              # Path to your oh-my-zsh installation.
+source $ZSH/oh-my-zsh.sh && echo "oh-my-zsh successfully loaded!\n"
+source /opt/homebrew/opt/spaceship/spaceship.zsh && echo "spaceship theme successfully loaded!\n"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,14 +66,13 @@ SPACESHIP_EXEC_TIME_PRECISION=3
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions)
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -90,29 +84,27 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding  those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
 #ALIASES
 
-##TERMINAL
+## CONFIGURATIONS
+alias c="code ."
 alias oz="code ~/.zshrc"
+alias ozc="code ~/.zshrc_core"
 alias soz="source ~/.zshrc"
+alias sozc="source ~/.zshrc_core"
+alias lsa="ls -al"
 alias kan="killall -9 node"
 
-##NAVIGATION
-alias .="cd .. && ls -al"
-alias ..="cd ...&& ls -al"
-alias ...="cd .... && ls -al"
+## NAVIGATION
+alias ..="cd .. && ls -al"
+alias ...="cd ...&& ls -al"
+alias ....="cd .... && ls -al"
 alias sshc="cd ~/.ssh && lsa"
 alias gitc="code ~/.gitconfig"
 alias gcm="git checkout main"
 alias docs="cd ~/Documents"
 
-##GIT
+## GIT
 alias gi="git init"
 alias ga="git add"
 alias gaa="git add ."
@@ -147,7 +139,7 @@ alias undo="git reset --soft HEAD~1"
 alias gc="better-commits"
 alias gbc="git branch --show-current | pbcopy"
 
-##NPM
+## NPM
 alias ns="npm start"
 alias nr="npm run"
 alias nrd="npm run dev"
@@ -162,28 +154,15 @@ alias ngl="npm ls -g"
 ## YARN
 alias ya="yarn add"
 alias yad="yarn add -D"
-
-##REACT
-alias ncra="npx create-react-app"
-
-##YARN
-alias ya="yarn add"
-alias yad="yarn add -D"
-alias yrs="yarn run storybook"
 alias ys="yarn start"
 alias yd="yarn dev"
 
-##OTHER
+## OTHER
 alias img="exiftool"
 alias imgc="exiftool -all= "
 alias scli="speedtest-cli"
 alias paths='echo -e ${PATH//:/\\n}'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-## BIN
-alias bin="cd /usr/local/bin"
-alias csetup="bin && code setup.sh"
-alias setup=". setup.sh"
 
 # create folder and files
 function mkfile() {
@@ -194,30 +173,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-echo ".zshrc successfully loaded!"
-
-# example aliaes
-# alias check='if [ -s "$HOME/test.txt" ]; then echo "it exists"; fi'
-# check_file() {
-#     if [ -s "$HOME/test.txt" ]; then
-#         echo "it exists"
-#     fi
-# }
-
-# -e FILE: Checks if the specified file exists.
-# -f FILE: Checks if the specified file exists and is a regular file.
-# -d FILE: Checks if the specified file exists and is a directory.
-# -s FILE: Checks if the specified file exists and has a size greater than zero.
-# -r FILE: Checks if the specified file is readable.
-# -w FILE: Checks if the specified file is writable.
-# -x FILE: Checks if the specified file is executable.
-# -z STRING: Checks if the specified string is empty.i
-# -n STRING: Checks if the specified string is not empty.
-# STRING1 = STRING2: Checks if the two strings are equal.
-# STRING1 != STRING2: Checks if the two strings are not equal.
-# INTEGER1 -eq INTEGER2: Checks if the two integers are equal.
-# INTEGER1 -ne INTEGER2: Checks if the two integers are not equal.
-# INTEGER1 -lt INTEGER2: Checks if the first integer is less than the second integer.
-# INTEGER1 -le INTEGER2: Checks if the first integer is less than or equal to the second integer.
-# INTEGER1 -gt INTEGER2: Checks if the first integer is greater than the second integer.
-# INTEGER1 -ge INTEGER2: Checks if the first integer is greater than or equal to the second integer.
+# notes when setting up a new computer
+# call configs gist
+# should download repo
+# alias script to call gist
+# alias script to create checklist file
