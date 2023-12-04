@@ -6,8 +6,10 @@ Centralize and version control my configurations across machines.
 
 ## Configurations 
 
-- oh-my-zsh
+- oh-my-zsh: install (https://ohmyz.sh/#install)
 - git and github
+- better-commit
+- better-branch    
 - iterm2
 - rectangle
 
