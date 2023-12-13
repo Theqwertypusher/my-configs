@@ -15,4 +15,9 @@ Centralize and version control my configurations across machines.
 
 ## Notes
 
+## Scripts
+
+lsof -i tcp:3000
+kill -9 [pid] 
+
 [Reference](https://www.atlassian.com/git/tutorials/dotfiles)
